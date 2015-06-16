@@ -1,0 +1,45 @@
+<!-- estates list -->
+<section>
+    <aside class="filters">
+        <h3>Filter</h3>
+        <input id="search-bar" class="search-bar" type="text" placeholder="Keyword.."/>
+        <label>Price:</label>
+        <input id="min-price" class="input-num" type="number" value="0" min="0"/>
+        <span>-</span>
+        <input id="max-price" class="input-num" type="number" value="100000000"/>
+        <label>Category:</label>
+
+
+        <select id="category" class="category">
+
+            <option selected="selected" value="">Name</option>
+
+        </select>
+
+       <a href="#/user/filter/"><button id="filter" class="filter-button">Filter</button></a>
+        <p class="clear-filters" id="clear-filters">Clear filters</p>
+    </aside>
+    <div class="estates">
+        <ul>
+            {{#estate}}
+            <li class="estate">
+                <div class="estate-info">
+                    <p class="item-name">{{name}}</p>
+                    <p class="category"><span class="pre">Category:</span>{{category.name}}</p>
+                    <p class="price"><span class="pre">Price:</span> ${{price}}</p>
+                </div>
+                {{#admin}}
+                <footer class="estate-footer">
+                    <a href="#/user/edit-estate/{{objectId}}/{{name}}/{{price}}/{{category.name}}/">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="#/user/delete-estate/{{objectId}}/">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </footer>
+                {{/admin}}
+            </li>
+            {{/estate}}
+        </ul>
+    </div>
+</section>
